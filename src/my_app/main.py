@@ -27,6 +27,7 @@ def main():
     engine.rootContext().setContextProperty("appControl", app_control)
 
     qml_dir = files("my_app").joinpath("qml")
+    print(qml_dir)
     engine.load(str(qml_dir / "Main.qml"))
 
     if not engine.rootObjects():

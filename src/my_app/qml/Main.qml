@@ -1,7 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-
+import "pages"
 ApplicationWindow {
     visible: true
     width: 800
@@ -75,6 +75,20 @@ ApplicationWindow {
                         text: "Duration: " + modelData.duration
                         font.italic: true
                         color: "#555555"
+                    }
+                }
+
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("Clicked lesson:", modelData.title)
+
+                        // Example: send lesson id to backend
+                        // appControl.select_lesson(modelData.id)
+
+                        // Example: navigate
+                        // stackView.push("LessonDetail.qml", { lessonData: modelData })
                     }
                 }
             }
