@@ -16,6 +16,13 @@ def main():
     # app.setOverrideCursor(QCursor(Qt.BlankCursor))
     engine = QQmlApplicationEngine()
 
+    assets_path = files("my_app").joinpath("assets")
+
+    engine.rootContext().setContextProperty(
+        "ASSETS_PATH",
+        assets_path.as_uri()
+    )
+
     app_control = AppControl()
     engine.rootContext().setContextProperty("appControl", app_control)
 
